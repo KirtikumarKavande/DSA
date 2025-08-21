@@ -1,7 +1,4 @@
-/**
- * @param {string} s
- * @return {number}
- */
+
 var lengthOfLastWord = function(s) {
     let array=s.split(" ")
     for(let i=array.length-1;i>=0;i--){
