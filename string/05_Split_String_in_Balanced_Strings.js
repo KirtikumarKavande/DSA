@@ -15,6 +15,5 @@ var balancedStringSplit = function (s) {
             matches += 1;
         }
     }
-
     return matches;
 };
