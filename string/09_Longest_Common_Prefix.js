@@ -12,3 +12,16 @@ var longestCommonPrefix = function (nums) {
 
     return longestPrefix
 };
+
+
+var longestCommonPrefix = function(nums) {
+    if (nums.length === 0) return "";
+    let prefix = nums[0];
+    for (let i = 1; i < nums.length; i++) {
+        while (nums[i].indexOf(prefix) !== 0) {
+            prefix = prefix.slice(0, -1);
+            if (!prefix) return "";
+        }
+    }
+    return prefix;
+};
