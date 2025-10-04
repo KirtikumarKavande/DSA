@@ -51,3 +51,18 @@ var hasPathSum = function(root, targetSum) {
     traverse(root, 0);
     return ans;
 };
+
+
+// approach 3
+
+var hasPathSum = function(root, targetSum) {
+    if (!root) return false;
+
+    if (!root.left && !root.right) {
+        return targetSum - root.val === 0;
+    }
+
+    targetSum -= root.val;
+
+    return hasPathSum(root.left, targetSum) || hasPathSum(root.right, targetSum);    
+};
