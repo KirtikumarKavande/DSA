@@ -14,3 +14,16 @@ var rightSideView = function (root) {
 
     return result
 };
+
+// approach 2
+
+const rightSideView = (
+    root,
+    answer = [],
+    depth = 0
+) => {
+    if (!root) return answer;
+    answer[depth] = root.val;
+    rightSideView(root.left, answer, depth + 1);
+    return rightSideView(root.right, answer, depth + 1);
+};
