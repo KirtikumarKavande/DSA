@@ -60,23 +60,23 @@ var connect = function (root) {
         if (!node) return
         if (!stack[level]) {
             stack[level] = [node];
-            node.next = null
+            node.next = null       
+            // above no need to point to null it will automatically handled by leetCode
         } else {
             const top = stack[level].pop()
             top.next = node
             stack[level].push(node)
             node.next = null
+            // above no need to point to null it will automatically handled by leetCode
+            
         }
 
         BFS(node.left, level + 1)
         BFS(node.right, level + 1)
 
     }
-
-
     BFS(root, 0)
     return root
-
 }
 
 
