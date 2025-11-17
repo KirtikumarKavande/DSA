@@ -49,3 +49,36 @@ var connect = function (root) {
 
 
 }
+
+// approach3 recursion
+
+var connect = function (root) {
+    if (!root) return root
+    const stack = []
+
+    function BFS(node, level) {
+        if (!node) return
+        if (!stack[level]) {
+            stack[level] = [node];
+            node.next = null
+        } else {
+            const top = stack[level].pop()
+            top.next = node
+            stack[level].push(node)
+            node.next = null
+        }
+
+        BFS(node.left, level + 1)
+        BFS(node.right, level + 1)
+
+    }
+
+
+    BFS(root, 0)
+    return root
+
+}
+
+
+
+
