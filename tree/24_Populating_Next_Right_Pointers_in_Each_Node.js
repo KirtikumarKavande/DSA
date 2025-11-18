@@ -60,7 +60,7 @@ var connect = function (root) {
         if (!node) return
         if (!stack[level]) {
             stack[level] = [node];
-            node.next = null       
+            node.next = null
             // above no need to point to null it will automatically handled by leetCode
         } else {
             const top = stack[level].pop()
@@ -68,7 +68,7 @@ var connect = function (root) {
             stack[level].push(node)
             node.next = null
             // above no need to point to null it will automatically handled by leetCode
-            
+
         }
 
         BFS(node.left, level + 1)
@@ -80,5 +80,21 @@ var connect = function (root) {
 }
 
 
+// approach 4 without using extra space
 
+var connect = function (root) {
+    if (!root) return root
+    let node = root
+    while (node.left) {
+        node.left.next = node.right
+        let currentNode = node
 
+        while (currentNode.next) {
+            currentNode.right.next = currentNode.next.left
+            currentNode = currentNode.next
+            currentNode.left.next = currentNode.right
+        }
+        node = node.left
+    }
+    return root
+}
