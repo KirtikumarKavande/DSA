@@ -11,7 +11,7 @@ var postorderTraversal = function (root) {
             stack.push(currentNode)
         }
         const topNode = stack[stack.length - 1]
-        if (topNode?.right && lastVisited!==topNode.right) {
+        if (topNode?.right && lastVisited !== topNode.right) {
             currentNode = topNode.right
             stack.push(currentNode)
         } else {

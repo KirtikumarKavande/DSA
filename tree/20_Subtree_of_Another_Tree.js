@@ -59,17 +59,17 @@ var isSubtree = function (root, subRoot) {
 
     function serialization(node) {
 
-        if(!node) return '#'
+        if (!node) return '#'
 
-        const left=serialization(node.left)
-        const right=serialization(node.right)
+        const left = serialization(node.left)
+        const right = serialization(node.right)
 
         return `,${node.val},${left},${right}`
 
     }
-    const serializedRoot=serialization(root)
-    const serializedSubRoot=serialization(subRoot)
-    return serializedRoot.includes(serializedSubRoot)?true:false
+    const serializedRoot = serialization(root)
+    const serializedSubRoot = serialization(subRoot)
+    return serializedRoot.includes(serializedSubRoot) ? true : false
 
 }
 

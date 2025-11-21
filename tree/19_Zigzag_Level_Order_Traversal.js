@@ -28,23 +28,23 @@ var zigzagLevelOrder = function (root) {
 
 // recursive approach
 
-var zigzagLevelOrder = function(root) {
-    
-const result=[]
-    function BFS(node,level){
-        if(!node) return 
-         if(!result[level]) result[level]=[]
-        if(level%2==0){
+var zigzagLevelOrder = function (root) {
+
+    const result = []
+    function BFS(node, level) {
+        if (!node) return
+        if (!result[level]) result[level] = []
+        if (level % 2 == 0) {
             result[level].push(node.val)
-        } else{
+        } else {
             result[level].unshift(node.val)
         }
 
-        BFS(node.left,level+1)
-        BFS(node.right,level+1)
+        BFS(node.left, level + 1)
+        BFS(node.right, level + 1)
 
     }
 
-    BFS(root,0)
+    BFS(root, 0)
     return result
 };
