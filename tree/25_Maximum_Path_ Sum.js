@@ -1,4 +1,4 @@
-
+//notes
 
 var maxPathSum = function (root) {
     let maxSum = root.val
@@ -6,15 +6,16 @@ var maxPathSum = function (root) {
 
         if (!node) return 0
 
-        const left = DFS(node.left)
-        const right = DFS(node.right)
+        const leftSum = DFS(node.left)
+        const rightSum = DFS(node.right)
 
-        maxSum = Math.max(node.val + left + right, maxSum)
+        maxSum = Math.max(node.val + leftSum + rightSum, maxSum)
 
-        return Math.max(node.val + left + right, 0)
+        return Math.max(node.val + leftSum, node.val + rightSum, 0)
     }
 
     DFS(root)
     return maxSum
+
 
 }
